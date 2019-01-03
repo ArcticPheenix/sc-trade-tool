@@ -41,7 +41,6 @@ export default class PriceTable extends React.Component {
   }
 
   columns() {
-    // TODO - Place correct definitions here.
     const columnDefinitions = [
       {
         Header: 'Location',
@@ -54,10 +53,24 @@ export default class PriceTable extends React.Component {
       {
         Header: 'Buy Price',
         accessor: 'buyPrice',
+        Cell: props => (
+          <div
+            style={{
+              color: props.value > 0.0 ? '#16ca1f' : 'red'
+          }}>{props.value}
+          </div>
+        )
       },
       {
         Header: 'Sell Price',
         accessor: 'sellPrice',
+        Cell: props => (
+          <div
+            style={{
+              color: props.value > 0.0 ? '#16ca1f' : 'red'
+          }}>{props.value}
+          </div>
+        )
       }
     ];
     return columnDefinitions;
@@ -68,6 +81,7 @@ export default class PriceTable extends React.Component {
     <ReactTable
       data={this.data()}
       columns={this.columns()}
+      className="-striped -highlight"
     />
     );
   };

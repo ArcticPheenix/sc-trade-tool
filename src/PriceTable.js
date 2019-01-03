@@ -3,9 +3,15 @@ import ReactTable from 'react-table';
 import 'react-table/react-table.css';
 
 export default class PriceTable extends React.Component {
+  constructor(props) {
+    super(props);
+    this.data = this.data.bind(this);
+    this.columns = this.columns.bind(this);
+  }
 
-  render() {
-    const data = [
+  data() {
+    // TODO - Basic data gathering function
+    const dataArray = [
       {
         name: 'Tanner Linsley',
         age: 26,
@@ -23,8 +29,12 @@ export default class PriceTable extends React.Component {
         }
       }
     ];
-    
-    const columns = [
+    return dataArray;
+  }
+
+  columns() {
+    // TODO - Place correct definitions here.
+    const columnDefinitions = [
       {
         Header: 'Name',
         accessor: 'name' // String-based value accessors!
@@ -41,11 +51,16 @@ export default class PriceTable extends React.Component {
         accessor: 'friend.age'
       }
     ];
+    return columnDefinitions;
+  }
+
+  render() {
+
     
     return (
     <ReactTable
-      data={data}
-      columns={columns}
+      data={this.data()}
+      columns={this.columns()}
     />
     );
   };

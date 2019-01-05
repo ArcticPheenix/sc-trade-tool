@@ -12,8 +12,6 @@ export default class PriceTable extends React.Component {
 
   data() {
     // TODO - Basic data gathering function
-    // fs.open('database/scdata.db')
-    this.sqlsetup('database/scdata.db');
     const dataArray = testData;
     return dataArray;
   }
@@ -60,6 +58,7 @@ export default class PriceTable extends React.Component {
       data={this.data()}
       columns={this.columns()}
       className="-striped -highlight"
+      filterable
     />
     );
   };

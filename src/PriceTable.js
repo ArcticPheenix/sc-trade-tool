@@ -8,7 +8,6 @@ export default class PriceTable extends React.Component {
     this.state = {
       data: [],
     };
-    this.data = this.data.bind(this);
     this.columns = this.columns.bind(this);
   }
 
